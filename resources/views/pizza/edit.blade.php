@@ -9,8 +9,8 @@
 
                     <div class="card-body">
                         <ul class="list-group ">
-                            <li class="list-group-item list-group-item-action">View</li>
-                            <li class="list-group-item list-group-item-action">Create</li>
+                            <a href="{{route('pizza.index')}}"><li class="list-group-item list-group-item-action">View</li></a>
+                            <a href="{{route('pizza.create')}}"><li class="list-group-item list-group-item-action">Create</li></a>
                         </ul>
                     </div>
                 </div>
@@ -31,16 +31,16 @@
                     <div class="card-header">Pizza</div>
                     <div class="card-body">
 
-                        <form action="{{route('pizza.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('pizza.update',$pizza->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
-
+                            @METHOD('PUT')
                             <div class="form-group">
                                 <label for="name">Pizza Name</label>
                                 <input type="text" name="name" class="form-control" placeholder="insert pizza name" value="{{$pizza->name}}">
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea name="description" id="" cols="30" rows="5" class="form-control" value="{{$pizza->description}}"></textarea>
+                                <textarea name="description" id="" cols="30" rows="5" class="form-control" >{{$pizza->description}}</textarea>
                             </div>
                             <div class="form-inline">
                                 <label for="description" class="mr-2">Price $ </label>
@@ -59,10 +59,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <input type="file" name="image" class="form-control">
+                                <input type="file" name="image" class="form-control mb-2">
                                 <img src="{{Storage::url($pizza->image)}}" style="width: 80px" alt="">
                             </div>
-                            <button type="submit" class="btn btn-primary ">Add Pizza</button>
+                            <button type="submit" class="btn btn-primary ">Update Pizza</button>
                         </form>
                     </div>
                 </div>
