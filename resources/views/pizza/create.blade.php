@@ -53,7 +53,6 @@
                                 <option value="traditional">traditional</option>
                                 <option value="non-traditional">non-traditional</option>
                                 <option value="vegetarian">vegetarian</option>
-                                <option value="non-vegetarian">non-vegetarian</option>
                             </select>
                         </div>
                         <div class="form-group">
